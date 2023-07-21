@@ -7,9 +7,7 @@
 
 	const { messages, handleSubmit, input, isLoading } = useChat({
 		api: '/chat',
-		onResponse: (response) => {
-			console.log(response);
-		},
+		onResponse: (response) => {},
 		body: {
 			department: 'sales',
 			product: 'shoes'
@@ -24,11 +22,9 @@
 		node.scroll({ top: node.scrollHeight, behavior: 'smooth' });
 	};
 	afterUpdate(() => {
-		console.log('afterUpdate');
 		if (messages) scrollToBottom(canvas);
 	});
 	$: if (messages && canvas) {
-		console.log('tick');
 		scrollToBottom(canvas);
 	}
 </script>
