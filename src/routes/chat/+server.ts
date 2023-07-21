@@ -12,10 +12,10 @@ const openai = new OpenAIApi(config);
 export const POST: RequestHandler = async ({ request }) => {
 	const { messages, department, product } = await request.json();
 	const response = await openai.createChatCompletion({
-		model: 'gpt-3.5-turbo',
+		model: 'gpt-3.5-turbo-16k',
 		stream: true,
 		messages: messages.map((message: any) => ({
-			content: message.content,
+			content: `${message.content}`,
 			role: message.role
 		}))
 	});
