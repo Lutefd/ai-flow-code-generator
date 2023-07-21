@@ -5,7 +5,7 @@
 	import { goto } from '$app/navigation';
 	import { afterUpdate } from 'svelte';
 
-	const { messages, handleSubmit, input } = useChat({
+	const { messages, handleSubmit, input, isLoading } = useChat({
 		api: '/chat',
 		onResponse: (response) => {
 			console.log(response);
@@ -55,11 +55,11 @@
 	</div>
 </div>
 <div class="w-screen flex justify-center">
-
 	<form on:submit={handleSubmit} class="absolute bottom-5">
 		<div class="flex gap-4">
 			<input bind:value={$input} class="input input-bordered input-secondary w-full max-w-xs" />
-			<button type="submit" class="btn-secondary w-32 rounded-lg">Send</button>
+			<button type="submit" class="btn-secondary w-32 rounded-lg" disabled={$isLoading}>Send</button
+			>
 		</div>
 	</form>
 </div>
