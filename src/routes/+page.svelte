@@ -38,13 +38,13 @@
 			{#each $messages as message}
 				{#if message.role === 'assistant'}
 					<li>
-						<div class="chat chat-end max-w-xl">
+						<div class="chat chat-start max-w-xl">
 							<div class="chat-bubble"><AiMessage message={message.content} /></div>
 						</div>
 					</li>{/if}
 				{#if message.role === 'user'}
 					<li>
-						<div class="chat chat-start">
+						<div class="chat chat-end">
 							<div class="chat-bubble">{message.content}</div>
 						</div>
 					</li>
