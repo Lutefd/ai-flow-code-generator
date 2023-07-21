@@ -36,6 +36,12 @@
 	<div class="w-96 md:w-[32rem]">
 		<ul>
 			{#each $messages as message}
+				{#if message.role === 'assistant'}
+					<li>
+						<div class="chat chat-end max-w-xl">
+							<div class="chat-bubble"><AiMessage message={message.content} /></div>
+						</div>
+					</li>{/if}
 				{#if message.role === 'user'}
 					<li>
 						<div class="chat chat-start">
@@ -43,12 +49,6 @@
 						</div>
 					</li>
 				{/if}
-				{#if message.role === 'assistant'}
-					<li>
-						<div class="chat chat-end max-w-xl">
-							<div class="chat-bubble"><AiMessage message={message.content} /></div>
-						</div>
-					</li>{/if}
 			{/each}
 		</ul>
 	</div>
