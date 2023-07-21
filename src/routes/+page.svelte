@@ -29,6 +29,9 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Teste de Modelo - AI SENSEDIA</title>
+</svelte:head>
 <div class="grid max-h-[48rem] overflow-y-scroll w-screen place-items-center" bind:this={canvas}>
 	<div class="w-96 md:w-[32rem]">
 		<ul>
