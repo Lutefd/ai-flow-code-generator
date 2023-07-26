@@ -15,9 +15,11 @@ export const POST: RequestHandler = async ({ request }) => {
 		model: 'gpt-3.5-turbo-16k',
 		stream: true,
 		messages: messages.map((message: any) => ({
-			content: `Baseado nos seguintes parametros department:${department},productType:${product}, attributes:${JSON.stringify(
-				attributes
-			)} e em nosso histórico de chat,  ${message.content}`,
+			content: `Baseado nos seguintes parametros department:${department.name},productType:${
+				product.name
+			}, attributes:${JSON.stringify(attributes)} e em nosso histórico de chat,  ${
+				message.content
+			}`,
 			role: message.role
 		}))
 	});

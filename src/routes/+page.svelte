@@ -27,7 +27,7 @@
 	let input = writable<string>();
 	let isLoading = writable<boolean>(false);
 	const scrollToBottom = async (node: HTMLElement) => {
-		node.scroll({ top: node.scrollHeight, behavior: 'smooth' });
+		node.scroll({ top: node.scrollHeight });
 	};
 	$: if ($qna && canvas) {
 		scrollToBottom(canvas);
@@ -351,6 +351,8 @@
 							return qna;
 						});
 					}
+					$input = '';
+
 					update();
 				};
 			}}
@@ -427,6 +429,8 @@
 							return qna;
 						});
 					}
+					$input = '';
+
 					update();
 				};
 			}}
@@ -434,7 +438,7 @@
 			<div class="flex gap-4">
 				<input type="hidden" name="department" value={$department.code} />
 				<input
-					bind:value={$input}
+					bind:value={$product}
 					name="a2"
 					class="input input-bordered input-secondary w-full max-w-xs"
 				/>
@@ -495,7 +499,7 @@
 								{
 									role: 'assistant',
 									content:
-										'Não consegui encontrar os atributos que você digitou. Por favor, escolha alguns dosabaixo.'
+										'Não consegui encontrar os atributos que você digitou. Por favor, escolha alguns dos abaixo.'
 								},
 								{
 									role: 'assistant',
@@ -507,6 +511,7 @@
 							return qna;
 						});
 					}
+					$input = '';
 					update();
 				};
 			}}
