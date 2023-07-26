@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@sveltejs/adapter-vercel':
     specifier: ^3.0.2
@@ -25,6 +29,9 @@ dependencies:
   sass:
     specifier: ^1.63.6
     version: 1.63.6
+  svelte-multiselect:
+    specifier: ^10.1.0
+    version: 10.1.0
 
 devDependencies:
   '@sveltejs/adapter-auto':
@@ -2425,6 +2432,12 @@ packages:
     dependencies:
       svelte: 4.0.5
 
+  /svelte-multiselect@10.1.0:
+    resolution: {integrity: sha512-zL16kwO13c5pkT6jgDxY1WXMSfH7z2EO3VI78I57AjYIM2u+XYaz1KUlfNOkQTmgVcVj7PmSF9xzXKMtf1xxCQ==}
+    dependencies:
+      svelte: 4.0.5
+    dev: false
+
   /svelte-preprocess@5.0.4(postcss@8.4.26)(sass@1.63.6)(svelte@4.0.5)(typescript@5.1.6):
     resolution: {integrity: sha512-ABia2QegosxOGsVlsSBJvoWeXy1wUKSfF7SWJdTjLAbx/Y3SrVevvvbFNQqrSJw89+lNSsM58SipmZJ5SRi5iw==}
     engines: {node: '>= 14.10.0'}
@@ -2766,7 +2779,3 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
