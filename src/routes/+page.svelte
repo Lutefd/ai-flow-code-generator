@@ -181,7 +181,7 @@
 	<title>Teste de Modelo - AI SENSEDIA</title>
 </svelte:head>
 <div class="grid max-h-[48rem] overflow-y-scroll w-screen place-items-center" bind:this={canvas}>
-	<div class="w-96 md:w-[32rem] pb-12 md:pb-0">
+	<div class="w-96 md:w-[64rem] md:mx-auto pb-12 md:pb-0">
 		<ul>
 			{#each $qna as message}
 				{#if message.role === 'assistant'}
@@ -194,7 +194,7 @@
 											options={message.content}
 											display_func={(o) => o.name}
 											index={-1}
-											section="department"
+											section="Select a department"
 											onSelect={updateInvalidQ1}
 											bind:which={invalidq1}
 											bind:value={$department}
@@ -204,7 +204,7 @@
 											options={message.content}
 											display_func={(o) => o.name}
 											index={-1}
-											section="product"
+											section="Select a product"
 											onSelect={updateInvalidQ2}
 											bind:which={invalidq2}
 											bind:value={$product}
@@ -273,7 +273,7 @@
 				<input
 					bind:value={$input}
 					name="answer"
-					class="input input-bordered input-secondary w-full max-w-xs"
+					class="input input-bordered input-secondary w-full max-w-xs md:max-w-xl"
 				/>
 				<button type="submit" class="btn-secondary w-32 rounded-lg" disabled={$isLoading}
 					>Send</button
@@ -286,7 +286,7 @@
 				<input
 					bind:value={$input}
 					name="answer"
-					class="input input-bordered input-secondary w-full max-w-xs"
+					class="input input-bordered input-secondary w-full max-w-xs md:max-w-2xl"
 				/>
 				<button type="submit" class="btn-secondary w-32 rounded-lg" disabled={$isLoading}
 					>Send</button
@@ -361,7 +361,7 @@
 					bind:value={$department}
 					name="a1"
 					autocomplete="off"
-					class="input input-bordered input-secondary w-full max-w-xs"
+					class="input input-bordered input-secondary w-fit max-w-xs"
 				/>
 				<button type="submit" class="btn-secondary w-32 rounded-lg" disabled={$isLoading}
 					>Send</button

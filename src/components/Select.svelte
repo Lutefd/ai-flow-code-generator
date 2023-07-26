@@ -17,7 +17,7 @@
 </script>
 
 <select bind:value={index} class="select select-secondary w-full max-w-xs">
-	<option value={-1}>Select an {section}</option>
+	<option value={-1}>{section}</option>
 	{#each options as option, i}
 		<option value={i}>{display_func(option)}</option>
 	{/each}
