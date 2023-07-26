@@ -1,17 +1,6 @@
-export interface Apps {
-	id: number;
-	clientId: string;
+export interface Departments {
+	code: string;
 	name: string;
-	status: string;
-	description: string;
-	secret: string;
-	extraInfo: ExtraInfo;
-	developer: string;
-	creationDate: number;
-	showAppGallery: boolean;
-	apis: API[];
-	accessTokens: any[];
-	ownerType: string;
 }
 
 export interface API {
