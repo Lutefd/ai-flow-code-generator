@@ -3,19 +3,11 @@
 	import hljs from 'highlight.js';
 	import { markedHighlight } from 'marked-highlight';
 
-	// 	marked.use({ mangle: false, headerIds: false }, markedHighlight{
-	//         async: true,
-	//         highlight: (code, lang) => {
-	//             return hljs.highlight(code, { language: lang }).value;
-	//         }
-	// })
-
 	const marked = new Marked(
 		markedHighlight({
 			langPrefix: 'hljs language-',
 			highlight(code, lang) {
-				const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-
+				const language = hljs.getLanguage(lang) ? lang : 'shell';
 				return hljs.highlight(code, { language }).value;
 			}
 		})
@@ -51,7 +43,9 @@
 		padding: 2rem;
 		border-top: solid 2px #888;
 	}
-
+	pre code {
+		font-size: 0.75rem;
+	}
 	h1 {
 		background: #e1e1e1;
 		margin: 0px;
