@@ -2,21 +2,39 @@ import { SENSEDIA_AUTH } from '$env/static/private';
 import { fail } from '@sveltejs/kit';
 
 export const actions = {
-	validateq1: async ({ cookies, request }) => {
+	validateq1: async ({ request }) => {
 		const data = await request.formData();
-		console.log(data.get('a1'));
 		if (SENSEDIA_AUTH == undefined) return { body: { message: 'SENSEDIA_AUTH não definido' } };
 		const dataFromManager = await fetch(
-			'https://manager-treinamento.sensedia.com/api-manager/api/v3/apps/',
+			'http://api-sandbox.netshoes.com.br/api/v1/bus/NS/departments',
 			{
 				method: 'GET',
 				headers: {
 					'Content-Type': 'application/json',
-					'Sensedia-Auth': SENSEDIA_AUTH
+					client_id: '3436b80b-b906-4a2b-b8d2-9cb1de5a38ab',
+					access_token: 'd4908173-3bbb-4cf9-8d0c-dae99d99e213'
 				}
 			}
-		).then((res) => res.json());
-		const match = dataFromManager.find((element: { name: string }) => {
+		).then(async (res) => {
+			const reader = res.body?.getReader();
+			if (!reader) return '';
+			const chunks: string[] = [];
+			async function readStream(): Promise<string> {
+				if (!reader) return '';
+				const { done, value } = await reader.read();
+				if (done) {
+					return chunks.join('');
+				}
+
+				chunks.push(new TextDecoder().decode(value));
+				return await readStream();
+			}
+			return await readStream();
+		});
+
+		const parsedData = JSON.parse(dataFromManager);
+
+		const match = parsedData.items.find((element: { name: string }) => {
 			if (element.name.toLowerCase() == data.get('a1')?.toString().toLocaleLowerCase()) {
 				return true;
 			}
@@ -25,15 +43,113 @@ export const actions = {
 		if (match) {
 			return { message: 'Resposta correta', app: match };
 		} else {
-			return fail(401, { message: 'Resposta incorreta', apps: dataFromManager });
+			return fail(404, { message: 'Resposta incorreta', apps: parsedData.items });
 		}
 	},
 	validateq2: async ({ cookies, request }) => {
 		const data = await request.formData();
-		console.log(data.get('a2'));
-		return { message: 'Resposta correta' };
+		const dataFromManager = await fetch(
+			`http://api-sandbox.netshoes.com.br/api/v1/department/${data.get('department')}/productType`,
+			{
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+					client_id: '3436b80b-b906-4a2b-b8d2-9cb1de5a38ab',
+					access_token: 'd4908173-3bbb-4cf9-8d0c-dae99d99e213'
+				}
+			}
+		).then(async (res) => {
+			const reader = res.body?.getReader();
+			if (!reader) return '';
+			const chunks: string[] = [];
+			async function readStream(): Promise<string> {
+				if (!reader) return '';
+				const { done, value } = await reader.read();
+				if (done) {
+					return chunks.join('');
+				}
+
+				chunks.push(new TextDecoder().decode(value));
+				return await readStream();
+			}
+			return await readStream();
+		});
+		const parsedData = JSON.parse(dataFromManager);
+
+		const match = parsedData.items.find((element: { name: string }) => {
+			if (element.name.toLowerCase() == data.get('a2')?.toString().toLocaleLowerCase()) {
+				return true;
+			}
+		});
+
+		if (match) {
+			return { message: 'Resposta correta', app: match };
+		} else {
+			return fail(404, { message: 'Resposta incorreta', productTypes: parsedData.items });
+		}
 	},
-	delete: async ({ cookies, request }) => {
+	validateq3: async ({ cookies, request }) => {
 		const data = await request.formData();
+		const dataFromManager = await fetch(
+			`http://api-sandbox.netshoes.com.br/api/v1/department/${data.get(
+				'department'
+			)}/productType/${data.get('product')}/templates`,
+			{
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+					client_id: '3436b80b-b906-4a2b-b8d2-9cb1de5a38ab',
+					access_token: 'd4908173-3bbb-4cf9-8d0c-dae99d99e213'
+				}
+			}
+		).then(async (res) => {
+			const reader = res.body?.getReader();
+			if (!reader) return '';
+			const chunks: string[] = [];
+			async function readStream(): Promise<string> {
+				if (!reader) return '';
+				const { done, value } = await reader.read();
+				if (done) {
+					return chunks.join('');
+				}
+
+				chunks.push(new TextDecoder().decode(value));
+				return await readStream();
+			}
+			return await readStream();
+		});
+		const parsedData = JSON.parse(dataFromManager);
+		const itemNames = data.get('a2')?.toString().toLocaleLowerCase().split(', ');
+
+		const matches = parsedData.items.filter((element: { name: string }) => {
+			if (itemNames == undefined)
+				return fail(404, { message: 'Resposta incorreta', productAttributes: parsedData.items });
+			return itemNames.includes(element.name.toLowerCase());
+		});
+		const transformedMatches = matches.map(
+			(element: { code: number; name: string; typeSelection: string; required: boolean }) => {
+				return {
+					value: element.code,
+					label: element.name,
+					typeSelection: element.typeSelection,
+					required: element.required
+				};
+			}
+		);
+		const transformedParsedData = parsedData.items.map(
+			(element: { code: number; name: string; typeSelection: string; required: boolean }) => {
+				return {
+					value: element.code,
+					label: element.name,
+					typeSelection: element.typeSelection,
+					required: element.required
+				};
+			}
+		);
+		if (matches.length > 0) {
+			return { message: 'Resposta correta', app: transformedMatches };
+		} else {
+			return fail(404, { message: 'Resposta incorreta', productAttributes: transformedParsedData });
+		}
 	}
 };
