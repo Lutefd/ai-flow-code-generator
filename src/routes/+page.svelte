@@ -269,7 +269,7 @@
 			</ul>
 		</div>
 	</div>
-	<div class="w-screen flex justify-center pb-5">
+	<div class="w-screen flex justify-center py-5 bg-inherit">
 		{#if formload == true || $isLoading || invalidq1 == true || invalidq2 == true || invalidq3 == true}
 			<div class="absolute bottom-5">
 				<span class="loading loading-dots loading-lg" />
