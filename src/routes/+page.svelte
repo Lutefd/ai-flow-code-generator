@@ -161,7 +161,7 @@
 				{
 					role: 'assistant',
 					content:
-						'Olá. Para lhe auxliar no fluxo de criação de produtos da Netshoes preciso de algumas informações.'
+						'Olá. Para lhe auxliar no fluxo de criação de produtos da Netshoes preciso de algumas informações. Caso não saiba responder alguma delas, digite "não sei" e eu te auxiliarei com as opções disponíveis. Vamos lá?'
 				},
 				{
 					role: 'assistant',
@@ -400,7 +400,7 @@
 							//@ts-ignore
 							$product = result.data?.productTypes;
 							formload = false;
-
+							console.log($product);
 							qna.update((qna) => {
 								qna = [
 									...qna,
