@@ -328,7 +328,7 @@
 									...qna,
 									{
 										role: 'assistant',
-										content: `Perfeito! A aplicação escolhida foi ${$department.name}. Agora escolha o tipo de produto que deseja cadastrar`
+										content: `Perfeito! O departamento escolhido foi ${$department.name}. Agora escolha o tipo de produto que deseja cadastrar`
 									}
 								];
 								return qna;
@@ -406,7 +406,7 @@
 									...qna,
 									{
 										role: 'assistant',
-										content: `Perfeito! o tipo de  foi ${$product.name}. Quais serão os atributos do seu produto?`
+										content: `Perfeito! O tipo de produto escolhido foi ${$product.name}. Quais serão os atributos do seu produto?`
 									}
 								];
 								return qna;
