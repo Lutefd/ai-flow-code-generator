@@ -185,7 +185,7 @@
 		class="flex flex-col overflow-y-scroll h-[100%] w-full place-items-center"
 		bind:this={canvas}
 	>
-		<div class="w-90 md:w-[64rem] md:mx-auto pb-12 md:pb-0">
+		<div class="w-90 lg:w-[64rem] md:mx-auto pb-12 md:pb-0">
 			<ul>
 				{#each $qna as message}
 					{#if message.role === 'assistant'}
