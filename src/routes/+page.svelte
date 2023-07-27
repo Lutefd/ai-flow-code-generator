@@ -26,11 +26,11 @@
 	let canvas: HTMLElement;
 	let input = writable<string>();
 	let isLoading = writable<boolean>(false);
-	const scrollToBottom = async (node: HTMLElement) => {
-		node.scroll({ top: node.scrollHeight });
+	const scrollToBottom = async (node: HTMLElement, option: ScrollBehavior) => {
+		node.scroll({ top: node.scrollHeight, behavior: option });
 	};
 	$: if ($qna && canvas) {
-		scrollToBottom(canvas);
+		scrollToBottom(canvas, 'instant');
 	}
 	function updateDepartmentsList(departments: unknown) {
 		departmentsList = departments as Departments[];
@@ -173,7 +173,7 @@
 		});
 	});
 	afterUpdate(() => {
-		if (qna) scrollToBottom(canvas);
+		if (qna) scrollToBottom(canvas, 'instant');
 	});
 </script>
 
@@ -222,6 +222,9 @@
 												liOptionClass="option bg-[#212121] text-white font-light text-md"
 												liActiveOptionClass="bg-blue-200 text-black font-light text-md"
 												ulOptionsClass="rounded-none"
+												on:open={() => {
+													scrollToBottom(canvas, 'smooth');
+												}}
 											/>
 											<button
 												on:click={updateInvalidQ3}
