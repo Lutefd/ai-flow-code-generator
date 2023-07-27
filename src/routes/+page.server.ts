@@ -5,6 +5,7 @@ export const actions = {
 	validateq1: async ({ request }) => {
 		const data = await request.formData();
 		if (SENSEDIA_AUTH == undefined) return { body: { message: 'SENSEDIA_AUTH não definido' } };
+
 		const dataFromManager = await fetch(
 			'http://api-sandbox.netshoes.com.br/api/v1/bus/NS/departments',
 			{
@@ -54,8 +55,8 @@ export const actions = {
 				method: 'GET',
 				headers: {
 					'Content-Type': 'application/json',
-					client_id: '3436b80b-b906-4a2b-b8d2-9cb1de5a38ab',
-					access_token: 'd4908173-3bbb-4cf9-8d0c-dae99d99e213'
+					client_id: CLIENT_ID,
+					access_token: ACCESS_TOKEN
 				}
 			}
 		).then(async (res) => {
@@ -98,8 +99,8 @@ export const actions = {
 				method: 'GET',
 				headers: {
 					'Content-Type': 'application/json',
-					client_id: '3436b80b-b906-4a2b-b8d2-9cb1de5a38ab',
-					access_token: 'd4908173-3bbb-4cf9-8d0c-dae99d99e213'
+					client_id: CLIENT_ID,
+					access_token: ACCESS_TOKEN
 				}
 			}
 		).then(async (res) => {
