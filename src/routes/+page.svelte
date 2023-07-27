@@ -181,7 +181,7 @@
 	<title>Teste de Modelo - AI SENSEDIA</title>
 </svelte:head>
 <div class="grid max-h-[48rem] overflow-y-scroll w-screen place-items-center" bind:this={canvas}>
-	<div class="w-96 md:w-[64rem] md:mx-auto pb-12 md:pb-0">
+	<div class="w-90 md:w-[64rem] md:mx-auto pb-12 md:pb-0">
 		<ul>
 			{#each $qna as message}
 				{#if message.role === 'assistant'}
@@ -272,7 +272,7 @@
 		</div>
 	{:else if setupComplete && !$isLoading && initialPrompt}
 		<form on:submit={(e) => handleSubmit(e, '/initialChat')} class="absolute bottom-5">
-			<div class="flex gap-4">
+			<div class="flex gap-4 px-2">
 				<input
 					bind:value={$input}
 					name="answer"
@@ -285,7 +285,7 @@
 		</form>
 	{:else if setupComplete && !$isLoading && !initialPrompt}
 		<form on:submit={(e) => handleSubmit(e, '/chat')} class="absolute bottom-5">
-			<div class="flex gap-4">
+			<div class="flex gap-4 px-2">
 				<input
 					bind:value={$input}
 					name="answer"
@@ -361,12 +361,12 @@
 			}}
 			class="absolute bottom-5"
 		>
-			<div class="flex gap-4">
+			<div class="flex gap-4 px-2">
 				<input
 					bind:value={$department}
 					name="a1"
 					autocomplete="off"
-					class="input input-bordered input-secondary w-fit max-w-xs"
+					class="input input-bordered input-secondary w-full max-w-xs"
 				/>
 				<button type="submit" class="btn-secondary w-32 rounded-lg" disabled={$isLoading}
 					>Send</button
@@ -438,7 +438,7 @@
 				};
 			}}
 		>
-			<div class="flex gap-4">
+			<div class="flex gap-4 px-2">
 				<input type="hidden" name="department" value={$department.code} />
 				<input
 					bind:value={$product}
@@ -519,7 +519,7 @@
 				};
 			}}
 		>
-			<div class="flex gap-4">
+			<div class="flex gap-4 px-2">
 				<input type="hidden" name="department" value={$department.code} />
 				<input type="hidden" name="product" value={$product.code} />
 				<input
