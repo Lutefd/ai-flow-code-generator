@@ -180,7 +180,7 @@
 <svelte:head>
 	<title>Teste de Modelo - AI SENSEDIA</title>
 </svelte:head>
-<div class="flex flex-col space-between h-screen w-screen">
+<div class="flex flex-col space-between h-screen w-screen gap-16">
 	<div
 		class="flex flex-col overflow-y-scroll h-[100%] w-full place-items-center"
 		bind:this={canvas}
