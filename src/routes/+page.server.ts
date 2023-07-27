@@ -84,7 +84,7 @@ export const actions = {
 		});
 
 		if (match) {
-			return { message: 'Resposta correta', app: match };
+			return { message: 'Resposta correta', productTypes: match };
 		} else {
 			return fail(404, { message: 'Resposta incorreta', productTypes: parsedData.items });
 		}
@@ -148,7 +148,7 @@ export const actions = {
 			}
 		);
 		if (matches.length > 0) {
-			return { message: 'Resposta correta', app: transformedMatches };
+			return { message: 'Resposta correta', productAttributes: transformedMatches };
 		} else {
 			return fail(404, { message: 'Resposta incorreta', productAttributes: transformedParsedData });
 		}
