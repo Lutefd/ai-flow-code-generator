@@ -1,4 +1,4 @@
-import { SENSEDIA_AUTH } from '$env/static/private';
+import { SENSEDIA_AUTH, CLIENT_ID, ACCESS_TOKEN } from '$env/static/private';
 import { fail } from '@sveltejs/kit';
 
 export const actions = {
@@ -11,8 +11,8 @@ export const actions = {
 				method: 'GET',
 				headers: {
 					'Content-Type': 'application/json',
-					client_id: '3436b80b-b906-4a2b-b8d2-9cb1de5a38ab',
-					access_token: 'd4908173-3bbb-4cf9-8d0c-dae99d99e213'
+					client_id: CLIENT_ID,
+					access_token: ACCESS_TOKEN
 				}
 			}
 		).then(async (res) => {
@@ -46,7 +46,7 @@ export const actions = {
 			return fail(404, { message: 'Resposta incorreta', apps: parsedData.items });
 		}
 	},
-	validateq2: async ({ cookies, request }) => {
+	validateq2: async ({ request }) => {
 		const data = await request.formData();
 		const dataFromManager = await fetch(
 			`http://api-sandbox.netshoes.com.br/api/v1/department/${data.get('department')}/productType`,
@@ -88,7 +88,7 @@ export const actions = {
 			return fail(404, { message: 'Resposta incorreta', productTypes: parsedData.items });
 		}
 	},
-	validateq3: async ({ cookies, request }) => {
+	validateq3: async ({ request }) => {
 		const data = await request.formData();
 		const dataFromManager = await fetch(
 			`http://api-sandbox.netshoes.com.br/api/v1/department/${data.get(
