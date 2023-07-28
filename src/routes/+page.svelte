@@ -161,7 +161,7 @@
 				{
 					role: 'assistant',
 					content:
-						'Olá. Para lhe auxliar no fluxo de criação de produtos da Netshoes preciso de algumas informações. Caso não saiba responder alguma delas, digite "não sei" e eu te auxiliarei com as opções disponíveis. Vamos lá?'
+						'Olá. Para lhe auxiliar no fluxo de criação de produtos da Netshoes preciso de algumas informações. Caso não saiba responder alguma delas, digite "não sei" e eu te auxiliarei com as opções disponíveis. Vamos lá?'
 				},
 				{
 					role: 'assistant',
