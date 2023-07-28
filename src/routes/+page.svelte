@@ -277,7 +277,7 @@
 		{:else if setupComplete && !$isLoading && initialPrompt}
 			<form on:submit={(e) => handleSubmit(e, '/initialChat')} class="absolute bottom-5">
 				<div class="flex gap-4 px-2">
-					<label hidden for="answer">Answer Input</label>
+					<label class="hidden" hidden for="answer">Answer Input</label>
 					<input
 						bind:value={$input}
 						id="answer"
@@ -292,7 +292,7 @@
 		{:else if setupComplete && !$isLoading && !initialPrompt}
 			<form on:submit={(e) => handleSubmit(e, '/chat')} class="absolute bottom-5">
 				<div class="flex gap-4 px-2">
-					<label hidden for="answer">Answer Input</label>
+					<label class="hidden" hidden for="answer">Answer Input</label>
 					<input
 						bind:value={$input}
 						id="answer"
@@ -371,7 +371,7 @@
 				class="sticky bottom-5"
 			>
 				<div class="flex gap-4 px-2">
-					<label for="a1">Answer Input</label>
+					<label class="hidden" for="a1">Answer Input</label>
 					<input
 						bind:value={$department}
 						id="a1"
@@ -452,7 +452,7 @@
 			>
 				<div class="flex gap-4 px-2">
 					<input type="hidden" name="department" value={$department.code} />
-					<label hidden for="a2">Answer Input</label>
+					<label class="hidden" hidden for="a2">Answer Input</label>
 					<input
 						bind:value={$product}
 						name="a2"
@@ -537,7 +537,7 @@
 				<div class="flex gap-4 px-2">
 					<input type="hidden" name="department" value={$department.code} />
 					<input type="hidden" name="product" value={$product.code} />
-					<label hidden for="a2">Answer Input</label>
+					<label class="hidden" for="a2">Answer Input</label>
 
 					<input
 						bind:value={$input}
