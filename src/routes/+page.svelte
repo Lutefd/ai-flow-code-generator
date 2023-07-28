@@ -277,8 +277,10 @@
 		{:else if setupComplete && !$isLoading && initialPrompt}
 			<form on:submit={(e) => handleSubmit(e, '/initialChat')} class="absolute bottom-5">
 				<div class="flex gap-4 px-2">
+					<label hidden for="answer">Answer Input</label>
 					<input
 						bind:value={$input}
+						id="answer"
 						name="answer"
 						class="input input-bordered input-secondary w-full max-w-xs md:max-w-xl"
 					/>
@@ -290,8 +292,10 @@
 		{:else if setupComplete && !$isLoading && !initialPrompt}
 			<form on:submit={(e) => handleSubmit(e, '/chat')} class="absolute bottom-5">
 				<div class="flex gap-4 px-2">
+					<label hidden for="answer">Answer Input</label>
 					<input
 						bind:value={$input}
+						id="answer"
 						name="answer"
 						class="input input-bordered input-secondary w-full max-w-xs md:max-w-2xl"
 					/>
@@ -335,6 +339,7 @@
 							});
 							q1 = false;
 							q2 = true;
+							$input = '';
 						}
 						if (result.type == 'failure') {
 							formload = false;
@@ -366,8 +371,10 @@
 				class="sticky bottom-5"
 			>
 				<div class="flex gap-4 px-2">
+					<label for="a1">Answer Input</label>
 					<input
 						bind:value={$department}
+						id="a1"
 						name="a1"
 						autocomplete="off"
 						class="input input-bordered input-secondary w-full max-w-xs"
@@ -413,6 +420,7 @@
 							});
 							q1 = false;
 							q2 = true;
+							$input = '';
 						}
 						if (result.type == 'failure') {
 							formload = false;
@@ -444,9 +452,11 @@
 			>
 				<div class="flex gap-4 px-2">
 					<input type="hidden" name="department" value={$department.code} />
+					<label hidden for="a2">Answer Input</label>
 					<input
 						bind:value={$product}
 						name="a2"
+						id="a2"
 						class="input input-bordered input-secondary w-full max-w-xs"
 					/>
 					<button type="submit" class="btn-secondary w-32 rounded-lg" disabled={$isLoading}
@@ -495,6 +505,7 @@
 							invalidq1 = false;
 							invalidq2 = false;
 							invalidq3 = false;
+							$input = '';
 						}
 						if (result.type == 'failure') {
 							formload = false;
@@ -526,9 +537,12 @@
 				<div class="flex gap-4 px-2">
 					<input type="hidden" name="department" value={$department.code} />
 					<input type="hidden" name="product" value={$product.code} />
+					<label hidden for="a2">Answer Input</label>
+
 					<input
 						bind:value={$input}
 						name="a2"
+						id="a2"
 						class="input input-bordered input-secondary w-full max-w-xs"
 					/>
 					<button type="submit" class="btn-secondary w-32 rounded-lg" disabled={$isLoading}
