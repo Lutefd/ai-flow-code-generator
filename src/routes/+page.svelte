@@ -156,6 +156,7 @@
 		invalidq3 = false;
 	}
 	onMount(async () => {
+		$input = '';
 		qna.update((qna) => {
 			qna = [
 				{
@@ -419,7 +420,8 @@
 								return qna;
 							});
 							q1 = false;
-							q2 = true;
+							q2 = false;
+							q3 = true;
 							$input = '';
 						}
 						if (result.type == 'failure') {
@@ -454,7 +456,7 @@
 					<input type="hidden" name="department" value={$department.code} />
 					<label class="hidden" hidden for="a2">Answer Input</label>
 					<input
-						bind:value={$product}
+						bind:value={$input}
 						name="a2"
 						id="a2"
 						class="input input-bordered input-secondary w-full max-w-xs"
