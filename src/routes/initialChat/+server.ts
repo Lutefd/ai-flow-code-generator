@@ -54,7 +54,7 @@ export const POST: RequestHandler = async ({ request }) => {
   ]
 }
 
-me dê um modelo de código
+me dê um modelo dessa chamada
 
 ${message.content}
 `,
