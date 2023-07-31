@@ -192,7 +192,7 @@
 					{#if message.role === 'assistant'}
 						<li>
 							<div class="chat chat-start max-w-xl">
-								<div class="chat-bubble">
+								<div class="chat-bubble bg-[#37474F] text-white">
 									{#if message.type === 'select'}
 										{#if message.question === 1}
 											<Select
@@ -222,18 +222,17 @@
 													let:idx
 													placeholder="Select the attributes"
 													bind:selected={$attributes}
-													outerDivClass="select select-secondary w-full h-auto max-w-xs"
-													inputClass="input input-bordered input-secondary w-full max-w-xs"
-													liOptionClass="option bg-[#212121] text-white font-light text-md"
+													outerDivClass="select select-primary w-full h-auto max-w-xs"
+													inputClass="input input-bordered input-primary outline-[#37474F] border-[#2b373c] active:outline-[#37474F] focus:outline-[#37474F] w-full max-w-xs"
+													liOptionClass="option bg-[#37474F] text-white font-light text-md"
 													liActiveOptionClass="bg-blue-200 text-black font-light text-md"
 													ulOptionsClass="rounded-none"
 													on:open={() => {
 														scrollToBottom(canvas, 'smooth');
 													}}
 												/>
-												<button
-													on:click={updateInvalidQ3}
-													class="btn-primary w-24 rounded-lg h-8 self-end">Select</button
+												<button on:click={updateInvalidQ3} class="btn w-24 rounded-lg h-5 self-end"
+													>Select</button
 												>
 											</div>
 										{/if}
@@ -246,31 +245,15 @@
 					{#if message.role === 'user'}
 						<li>
 							<div class="chat chat-end">
-								<div class="chat-bubble">{message.content}</div>
+								<div class="chat-bubble bg-[#2EA8E6] text-white">{message.content}</div>
 							</div>
 						</li>
 					{/if}
 				{/each}
-
-				<!-- {#each $messages as message}
-					{#if message.role === 'assistant'}
-						<li>
-							<div class="chat chat-start max-w-xl">
-								<div class="chat-bubble"><AiMessage message={message.content} /></div>
-							</div>
-						</li>{/if}
-					{#if message.role === 'user'}
-						<li>
-							<div class="chat chat-end">
-								<div class="chat-bubble">{message.content}</div>
-							</div>
-						</li>
-					{/if}
-				{/each} -->
 			</ul>
 		</div>
 	</div>
-	<div class="w-screen flex justify-center py-5 bg-inherit">
+	<div class="w-screen flex justify-center py-3 md:py-5 bg-inherit">
 		{#if formload == true || $isLoading || invalidq1 == true || invalidq2 == true || invalidq3 == true}
 			<div class="absolute bottom-5">
 				<span class="loading loading-dots loading-lg" />
@@ -283,10 +266,12 @@
 						bind:value={$input}
 						id="answer"
 						name="answer"
-						class="input input-bordered input-secondary w-full max-w-xs md:max-w-xl"
+						class="input input-bordered input-primary outline-[#37474F] border-[#2b373c] active:outline-[#37474F] focus:outline-[#37474F] w-full max-w-xs md:max-w-xl"
 					/>
-					<button type="submit" class="btn-secondary w-32 rounded-lg" disabled={$isLoading}
-						>Send</button
+					<button
+						type="submit"
+						class="btn-primary bg-[#37474F] hover:bg-[#2b373c] w-32 rounded-lg"
+						disabled={$isLoading}>Send</button
 					>
 				</div>
 			</form>
@@ -298,10 +283,12 @@
 						bind:value={$input}
 						id="answer"
 						name="answer"
-						class="input input-bordered input-secondary w-full max-w-xs md:max-w-2xl"
+						class="input input-bordered input-primary outline-[#37474F] border-[#2b373c] active:outline-[#37474F] focus:outline-[#37474F] w-full max-w-xs md:max-w-2xl"
 					/>
-					<button type="submit" class="btn-secondary w-32 rounded-lg" disabled={$isLoading}
-						>Send</button
+					<button
+						type="submit"
+						class="btn-primary bg-[#37474F] hover:bg-[#2b373c] w-32 rounded-lg"
+						disabled={$isLoading}>Send</button
 					>
 				</div>
 			</form>
@@ -378,10 +365,12 @@
 						id="a1"
 						name="a1"
 						autocomplete="off"
-						class="input input-bordered input-secondary w-full max-w-xs"
+						class="input input-bordered input-primary outline-[#37474F] border-[#2b373c] active:outline-[#37474F] focus:outline-[#37474F] w-full max-w-xs"
 					/>
-					<button type="submit" class="btn-secondary w-32 rounded-lg" disabled={$isLoading}
-						>Send</button
+					<button
+						type="submit"
+						class="btn-primary w-32 bg-[#37474F] hover:bg-[#2b373c] rounded-lg"
+						disabled={$isLoading}>Send</button
 					>
 				</div>
 			</form>
@@ -459,10 +448,12 @@
 						bind:value={$input}
 						name="a2"
 						id="a2"
-						class="input input-bordered input-secondary w-full max-w-xs"
+						class="input input-bordered input-primary outline-[#37474F] border-[#2b373c] active:outline-[#37474F] focus:outline-[#37474F] w-full max-w-xs"
 					/>
-					<button type="submit" class="btn-secondary w-32 rounded-lg" disabled={$isLoading}
-						>Send</button
+					<button
+						type="submit"
+						class="btn-primary bg-[#37474F] hover:bg-[#2b373c] w-32 rounded-lg"
+						disabled={$isLoading}>Send</button
 					>
 				</div>
 			</form>
@@ -545,10 +536,12 @@
 						bind:value={$input}
 						name="a2"
 						id="a2"
-						class="input input-bordered input-secondary w-full max-w-xs"
+						class="input input-bordered input-primary outline-[#37474F] border-[#2b373c] active:outline-[#37474F] focus:outline-[#37474F] w-full max-w-xs"
 					/>
-					<button type="submit" class="btn-secondary w-32 rounded-lg" disabled={$isLoading}
-						>Send</button
+					<button
+						type="submit"
+						class="btn-primary w-32 bg-[#37474F] hover:bg-[#2b373c] rounded-lg"
+						disabled={$isLoading}>Send</button
 					>
 				</div>
 			</form>

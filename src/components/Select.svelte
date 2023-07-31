@@ -16,9 +16,12 @@
 	}
 </script>
 
-<select bind:value={index} class="select select-secondary w-full max-w-xs">
+<select
+	bind:value={index}
+	class="select text-white border-white bg-[#37474F] outline-[#37474F] w-full max-w-xs"
+>
 	<option value={-1}>{section}</option>
 	{#each options as option, i}
-		<option value={i}>{display_func(option)}</option>
+		<option class="text-white" value={i}>{display_func(option)}</option>
 	{/each}
 </select>
