@@ -197,7 +197,7 @@
 										<img src={ZeChat} class="object-cover" alt="zé chat icon" />
 									</div>
 								</div>
-								<div class="chat-bubble bg-[#37474F] text-white">
+								<div class="chat-bubble w-full bg-[#37474F] text-white">
 									{#if message.type === 'select'}
 										{#if message.question === 1}
 											<Select
