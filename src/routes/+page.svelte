@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { useChat } from 'ai/svelte';
+	import ZeChat from '../assets/ze_uni.jpg';
 	import { m2, qna } from '../store/stores';
 	import AiMessage from '../components/AiMessage.svelte';
 	import { afterUpdate, onMount } from 'svelte';
@@ -192,6 +192,11 @@
 					{#if message.role === 'assistant'}
 						<li>
 							<div class="chat chat-start max-w-xl">
+								<div class="chat-image avatar">
+									<div class="w-10 rounded-full">
+										<img src={ZeChat} class="object-cover" alt="zé chat icon" />
+									</div>
+								</div>
 								<div class="chat-bubble bg-[#37474F] text-white">
 									{#if message.type === 'select'}
 										{#if message.question === 1}
