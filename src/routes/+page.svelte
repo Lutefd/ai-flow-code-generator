@@ -94,6 +94,10 @@
 	}
 	async function handleSubmit(event: Event, stageURL: string) {
 		event.preventDefault();
+		const restartPattern = /reinicie o fluxo|recomece o fluxo/;
+		if ($input.toLocaleLowerCase().match(restartPattern)) {
+			window.location.reload();
+		}
 		if ($input) {
 			qna.update((qna) => {
 				qna = [
@@ -303,6 +307,11 @@
 				action="?/validateq1"
 				use:enhance={({ formData }) => {
 					const a1 = formData.get('a1');
+					if (a1 == null) return;
+					const restartPattern = /reinicie o fluxo|recomece o fluxo/;
+					if (a1.toString().toLocaleLowerCase().match(restartPattern)) {
+						window.location.reload();
+					}
 					qna.update((qna) => {
 						qna = [
 							...qna,
@@ -386,6 +395,11 @@
 				class="sticky bottom-5"
 				use:enhance={({ formData }) => {
 					const a2 = formData.get('a2');
+					if (a2 == null) return;
+					const restartPattern = /reinicie o fluxo|recomece o fluxo/;
+					if (a2.toString().toLocaleLowerCase().match(restartPattern)) {
+						window.location.reload();
+					}
 					qna.update((qna) => {
 						qna = [
 							...qna,
@@ -469,6 +483,11 @@
 				class="sticky bottom-5"
 				use:enhance={({ formData }) => {
 					const a2 = formData.get('a2');
+					if (a2 == null) return;
+					const restartPattern = /reinicie o fluxo|recomece o fluxo/;
+					if (a2.toString().toLocaleLowerCase().match(restartPattern)) {
+						window.location.reload();
+					}
 					qna.update((qna) => {
 						qna = [
 							...qna,
