@@ -94,7 +94,8 @@
 	}
 	async function handleSubmit(event: Event, stageURL: string) {
 		event.preventDefault();
-		const restartPattern = /reinicie o fluxo|recomece o fluxo/;
+		const restartPattern =
+			/reinicie o fluxo|recomece o fluxo|reinicia o fluxo|reiniciar fluxo|recomeçar fluxo/;
 		if ($input.toLocaleLowerCase().match(restartPattern)) {
 			window.location.reload();
 		}
@@ -310,7 +311,8 @@
 				use:enhance={({ formData }) => {
 					const a1 = formData.get('a1');
 					if (a1 == null) return;
-					const restartPattern = /reinicie o fluxo|recomece o fluxo/;
+					const restartPattern =
+						/reinicie o fluxo|recomece o fluxo|reinicia o fluxo|reiniciar fluxo|recomeçar fluxo/;
 					if (a1.toString().toLocaleLowerCase().match(restartPattern)) {
 						window.location.reload();
 					}
@@ -398,7 +400,8 @@
 				use:enhance={({ formData }) => {
 					const a2 = formData.get('a2');
 					if (a2 == null) return;
-					const restartPattern = /reinicie o fluxo|recomece o fluxo/;
+					const restartPattern =
+						/reinicie o fluxo|recomece o fluxo|reinicia o fluxo|reiniciar fluxo|recomeçar fluxo/;
 					if (a2.toString().toLocaleLowerCase().match(restartPattern)) {
 						window.location.reload();
 					}
@@ -487,7 +490,8 @@
 				use:enhance={({ formData }) => {
 					const a2 = formData.get('a2');
 					if (a2 == null) return;
-					const restartPattern = /reinicie o fluxo|recomece o fluxo/;
+					const restartPattern =
+						/reinicie o fluxo|recomece o fluxo|reinicia o fluxo|reiniciar fluxo|recomeçar fluxo/;
 					if (a2.toString().toLocaleLowerCase().match(restartPattern)) {
 						window.location.reload();
 					}
