@@ -21,3 +21,11 @@ export interface Plan {
 }
 
 export interface ExtraInfo {}
+export interface AttributesValues {
+	values: Value[];
+}
+
+export interface Value {
+	code: number;
+	value: string;
+}
