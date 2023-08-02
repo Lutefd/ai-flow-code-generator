@@ -20,7 +20,9 @@ export interface Plan {
 	description?: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ExtraInfo {}
+
 export interface AttributesValues {
 	values: Value[];
 }
@@ -28,4 +30,8 @@ export interface AttributesValues {
 export interface Value {
 	code: number;
 	value: string;
+}
+export interface Message {
+	role: string;
+	content: string;
 }
