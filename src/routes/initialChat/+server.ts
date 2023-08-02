@@ -11,6 +11,7 @@ const openai = new OpenAIApi(config);
 
 export const POST: RequestHandler = async ({ request }) => {
 	const { messages, department, product, attributes } = await request.json();
+	console.log(attributes);
 	const response = await openai.createChatCompletion({
 		model: 'gpt-3.5-turbo-16k-0613',
 		stream: true,
@@ -19,7 +20,7 @@ export const POST: RequestHandler = async ({ request }) => {
 				department.name
 			} e esse productType: ${product.name} e esses atributos ${JSON.stringify(
 				attributes
-			)}.Nesse modelo a seguir, as informações não passadas previamente apenas preencha com "placeholder":
+			)}.Nesse modelo a seguir, as informações não passadas previamente apenas preencha com "placeholder", caso os attributes possuam values com "code e values" apenas preencha com os objetos como strings, caso não possua apenas preencha com "placeholder":
 			{
   "sku": "string",
   "productGroup": "string",
