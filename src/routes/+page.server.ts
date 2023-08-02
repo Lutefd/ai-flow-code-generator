@@ -1,6 +1,6 @@
 import { SENSEDIA_AUTH, CLIENT_ID, ACCESS_TOKEN } from '$env/static/private';
 import { fail } from '@sveltejs/kit';
-
+import type { AttributesValues } from '../types/Interfaces.js';
 export const actions = {
 	validateq1: async ({ request }) => {
 		const data = await request.formData();
@@ -128,22 +128,36 @@ export const actions = {
 			return itemNames.includes(element.name.toLowerCase());
 		});
 		const transformedMatches = matches.map(
-			(element: { code: number; name: string; typeSelection: string; required: boolean }) => {
+			(element: {
+				code: number;
+				name: string;
+				typeSelection: string;
+				required: boolean;
+				values: AttributesValues;
+			}) => {
 				return {
 					value: element.code,
 					label: element.name,
 					typeSelection: element.typeSelection,
-					required: element.required
+					required: element.required,
+					values: JSON.stringify(element.values)
 				};
 			}
 		);
 		const transformedParsedData = parsedData.items.map(
-			(element: { code: number; name: string; typeSelection: string; required: boolean }) => {
+			(element: {
+				code: number;
+				name: string;
+				typeSelection: string;
+				required: boolean;
+				values: AttributesValues;
+			}) => {
 				return {
 					value: element.code,
 					label: element.name,
 					typeSelection: element.typeSelection,
-					required: element.required
+					required: element.required,
+					values: JSON.stringify(element.values)
 				};
 			}
 		);
