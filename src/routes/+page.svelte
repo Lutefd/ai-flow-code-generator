@@ -273,6 +273,7 @@
 					<label class="hidden" hidden for="answer">Answer Input</label>
 					<input
 						bind:value={$input}
+						autocomplete="off"
 						id="answer"
 						name="answer"
 						class="input input-bordered input-primary outline-[#37474F] border-[#2b373c] active:outline-[#37474F] focus:outline-[#37474F] w-full max-w-xs md:max-w-xl"
@@ -290,6 +291,7 @@
 					<label class="hidden" hidden for="answer">Answer Input</label>
 					<input
 						bind:value={$input}
+						autocomplete="off"
 						id="answer"
 						name="answer"
 						class="input input-bordered input-primary outline-[#37474F] border-[#2b373c] active:outline-[#37474F] focus:outline-[#37474F] w-full max-w-xs md:max-w-2xl"
@@ -466,6 +468,7 @@
 					<input
 						bind:value={$input}
 						name="a2"
+						autocomplete="off"
 						id="a2"
 						class="input input-bordered input-primary outline-[#37474F] border-[#2b373c] active:outline-[#37474F] focus:outline-[#37474F] w-full max-w-xs"
 					/>
@@ -558,6 +561,7 @@
 
 					<input
 						bind:value={$input}
+						autocomplete="off"
 						name="a2"
 						id="a2"
 						class="input input-bordered input-primary outline-[#37474F] border-[#2b373c] active:outline-[#37474F] focus:outline-[#37474F] w-full max-w-xs"
